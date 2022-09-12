@@ -1,0 +1,40 @@
+{
+  "name": "isomorphic-testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+
+    "build-test:ts": "tsc && node fix-esm-import-paths.cjs",
+    "build-test:bundle": "webpack -c webpack.config.cjs",
+
+    "build-tests:ts": "cd test && tsc && node ../fix-esm-import-paths.cjs .",
+    "build-tests:browser": "cd test/browser && webpack -c webpack.config.cjs",
+    "build-tests": "npm run build-tests:ts && npm run build-tests:browser",
+
+    "build:ts": "tsc && node fix-esm-import-paths.cjs .",
+    "build": "npm run build:ts",
+
+    "test:node": "mocha",
+    "test:browser": "node test/browser/main",
+    "test": "npm run test:node && npm run test:browser"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/mocha": "^9.1.1",
+    "@types/node": "^18.7.14",
+    "mocha": "^10.0.0",
+    "puppeteer": "^17.1.3",
+    "typescript": "^4.8.2",
+    "webpack": "^5.74.0",
+    "@types/node-static": "^0.7.7",
+    "node-static": "^0.7.11",
+    "webpack-cli": "^4.10.0"
+  },
+  "devDependencies": {
+
+  }
+}
